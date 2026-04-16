@@ -6,6 +6,7 @@ import produtoRoutes from './routes/produtoRoutes.js';
 import avaliacaoRoutes from './routes/avaliacaoRoutes.js';
 
 const app = express();
+
 const port = 3000;
 
 app.use(express.json());
