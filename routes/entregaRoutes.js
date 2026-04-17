@@ -3,10 +3,10 @@ import entregaController from '../controllers/entregaController.js';
 
 const router = express.Router();
 
-router.post('/', entregaController.create);
-router.get('/', entregaController.findAll);
-router.get('/:id', entregaController.findById);
+router.post('/', entregaController.store);
+router.get('/', entregaController.index);
+router.get('/:id', entregaController.show);
 router.put('/:id', entregaController.update);
-router.delete('/:id', entregaController.delete);
+router.delete('/:id', entregaController.destroy);
 
 export default router;

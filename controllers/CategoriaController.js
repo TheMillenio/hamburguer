@@ -15,7 +15,7 @@ const CategoriaController = {
     try {
       const categorias = await Categoria.findAll({
         include: [
-          { model: Produto }
+          { association: "produtos" }
         ]
       });
 

@@ -16,8 +16,8 @@ const PedidoController = {
     try {
       const pedidos = await Pedido.findAll({
         include: [
-          { model: Entrega },
-          { model: Avaliacao }
+          { association: 'entregas' },
+          { association: 'avaliacao' }
         ]
       });
 
@@ -36,8 +36,8 @@ const PedidoController = {
     try {
       const pedido = await Pedido.findByPk(req.params.id, {
         include: [
-          { model: Entrega },
-          { model: Avaliacao }
+          { association: 'entregas' },
+          { association: 'avaliacao' }
         ]
       });
 
@@ -89,7 +89,7 @@ const PedidoController = {
       const pedido = await Pedido.findByPk(req.params.id, { paranoid: false });
 
       if (pedido) {
-        await pedido.restaure();
+        await pedido.restore();
         res.status(200).json({ message: 'Pedido restaurado com sucesso' });
       } else {
         res.status(404).json({ error: 'Pedido nao encontrado' });
