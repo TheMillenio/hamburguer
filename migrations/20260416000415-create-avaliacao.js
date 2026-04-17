@@ -1,8 +1,8 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
-module.exports = {
+export default {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Avaliacaos', {
+    await queryInterface.createTable('avaliacoes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,10 +12,10 @@ module.exports = {
       nota: {
         type: Sequelize.INTEGER
       },
-      pedidoId: {
+      pedido_Id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Pedidos',
+          model: 'pedidos',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -28,10 +28,13 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      deletedAt: {
+        type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Avaliacaos');
+    await queryInterface.dropTable('avaliacoes');
   }
 };
