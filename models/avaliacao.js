@@ -5,7 +5,7 @@ export default class Avaliacao extends Model {
 
     static associate(models) {
         Avaliacao.belongsTo(models.Pedido, {
-            foreignKey: 'pedidoId',
+            foreignKey: 'pedido_id',
             as: 'pedido'
         });
     }
@@ -29,7 +29,7 @@ Avaliacao.init(
       }
     },
 
-    pedidoId: {
+    pedido_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
